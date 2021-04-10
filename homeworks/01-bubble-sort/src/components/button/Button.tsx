@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 type ButtonProps = {
 	name: string,
+	isDisabled: boolean,
 	action: () => void,
 }
 
@@ -13,7 +14,7 @@ class Button extends Component<ButtonProps, {}> {
 
 	render() {
 		return (
-			<button onClick={this.onClick}>{this.props.name}</button>
+			<button onClick={this.onClick} disabled={this.props.isDisabled}>{this.props.name}</button>
 		);
 	}
 }

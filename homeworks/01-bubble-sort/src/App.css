@@ -9,8 +9,10 @@
 }
 
   .container {
+    height: 200px;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     margin-bottom: 20px;
   }
 
