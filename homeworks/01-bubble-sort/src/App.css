@@ -8,18 +8,18 @@
   text-align: center;
 }
 
-  .container {
-    height: 200px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
+.container {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-  .btn-container {
-    width: 150px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
+.btn-container {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
 

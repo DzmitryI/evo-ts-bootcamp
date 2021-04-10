@@ -13,8 +13,11 @@ class Button extends Component<ButtonProps, {}> {
 	}
 
 	render() {
+		const {isDisabled, name} = this.props;
 		return (
-			<button onClick={this.onClick} disabled={this.props.isDisabled}>{this.props.name}</button>
+			<button onClick={this.onClick} disabled={isDisabled}>
+				{name}
+			</button>
 		);
 	}
 }
