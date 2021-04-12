@@ -17,8 +17,9 @@ img {
   grid-template-columns: 1fr 60px;
   align-items: flex-end;
   justify-content: center;
-  min-width: 300px;
+  width: 85%;
   position: relative;
+  margin: 0 auto;
 }
 
 .search {
@@ -42,7 +43,7 @@ img {
 .btn::after {
   content: '';
   position: absolute;
-  right: -23px;
+  right: -22px;
   top: 23px;
   border: 14px solid transparent;
   border-left: 9px solid #fc0;
