@@ -8,35 +8,33 @@ type AppState = {
 }
 
 export default class App extends Component<{}, AppState> {
-
 	state = {
 		arrOfImg: [],
 		query: '',
 	}
 
-	onClick = async () => {
-		const {query} = this.state;
+	 fetchImages = async (url: string, params: {params: {per_page ?: number, query?: string}}): Promise<void> => {
 		try {
-			const result: {data:  {results: {alt_description: string, height: number, urls: {}, width: number}[]}} = await api.get('/search/photos', {params:{query, per_page: 30}})
-			this.setState({arrOfImg: result.data.results})
+			const {data}: {data:  {results: {alt_description: string, height: number, urls: {}, width: number}[]}} = await api.get(url, params)
+			this.setState({arrOfImg: data.results})
 		} catch (e) {
 			alert(e.message)
 		}
 	}
 
-	onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	handleClick = async () => {
+		const {query} = this.state;
+		await this.fetchImages('/search/photos', {params:{query, per_page: 30}})
+	}
+
+	handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({query: e.currentTarget.value.trim()})
 	}
 
 	handleKeyPress = async (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if(e.key === 'Enter'){
 			const {query} = this.state;
-			try {
-				const result: {data:  {results: {alt_description: string, height: number, urls: {}, width: number}[]}} = await api.get('/search/photos', {params:{query, per_page: 30}})
-				this.setState({arrOfImg: result.data.results})
-			} catch (e) {
-				alert(e.message)
-			}
+			await this.fetchImages('/search/photos', {params:{query, per_page: 30}})
 		}
 	}
 
@@ -58,10 +56,10 @@ export default class App extends Component<{}, AppState> {
 						type="text"
 						className={styles.search}
 						value={query}
-						onChange={this.onChange}
+						onChange={this.handleChange}
 						onKeyPress={this.handleKeyPress}
 					/>
-					<button className={styles.btn} onClick={this.onClick}>search</button>
+					<button className={styles.btn} onClick={this.handleClick}>search</button>
 				</div>
 				<body className={styles.imagesContainer}>
 				{arrOfImg.length > 0 ? arrOfImg.map((curImg, idx) => {
@@ -75,6 +73,7 @@ export default class App extends Component<{}, AppState> {
 							}}>
 							<i style={{paddingBottom: `${curImg['height']/curImg['width']*100}%`}}></i>
 							<img src={curImg['urls']['regular']} alt={curImg['alt_description']} />
+							<div className={styles.imageDesc}>{curImg['alt_description']}</div>
 						</div>
 					)})
 					:
