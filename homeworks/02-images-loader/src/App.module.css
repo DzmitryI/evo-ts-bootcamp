@@ -16,7 +16,9 @@ img {
   display: grid;
   grid-template-columns: 1fr 60px;
   align-items: flex-end;
-  margin: 0 200px;
+  justify-content: center;
+  min-width: 300px;
+  position: relative;
 }
 
 .search {
@@ -40,8 +42,8 @@ img {
 .btn::after {
   content: '';
   position: absolute;
-  right: 177px;
-  top: 22px;
+  right: -23px;
+  top: 23px;
   border: 14px solid transparent;
   border-left: 9px solid #fc0;
 }
@@ -50,6 +52,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin: 0 20px;
+  height: fit-content;
 }
 
 .imageBlock {

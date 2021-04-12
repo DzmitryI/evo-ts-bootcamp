@@ -39,12 +39,12 @@ export default class App extends Component<{}, AppState> {
 	}
 
 	async componentDidMount() {
-		try {
-		const result: {data: {alt_description: string, height: number, urls: {}, width: number}[]} = await api.get('/photos/random', {params:{count: 30}})
-			this.setState({arrOfImg: result.data})
-		} catch (e) {
-			alert(e.message)
-		}
+		// try {
+		// const result: {data: {alt_description: string, height: number, urls: {}, width: number}[]} = await api.get('/photos/random', {params:{count: 30}})
+		// 	this.setState({arrOfImg: result.data})
+		// } catch (e) {
+		// 	alert(e.message)
+		// }
 	}
 
 	render() {
