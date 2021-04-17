@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# projects
+/homeworks/01-bubble-sort/node_modules
+/homeworks/02-images-loader/node_modules
+/homeworks/03-data-structure/node_modules
