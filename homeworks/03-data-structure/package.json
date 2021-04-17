@@ -1,0 +1,12 @@
+{
+  "name": "03-data-structure",
+  "version": "0.1.0",
+  "description": "Several data structure algorithms.",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch-all --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
