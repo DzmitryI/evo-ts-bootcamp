@@ -1,0 +1,86 @@
+img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  vertical-align: bottom;
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-rows: 50px 1fr;
+}
+
+.searchPanel {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: flex-end;
+  justify-content: center;
+  width: 85%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.search {
+  height: 23px;
+  border: 1px solid #fc0;
+  padding-left: 14px;
+}
+
+.search:focus,
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  border: none;
+  height: 27px;
+  cursor: pointer;
+  background-color: #fc0;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  right: -22px;
+  top: 23px;
+  border: 14px solid transparent;
+  border-left: 9px solid #fc0;
+}
+
+.imagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  height: fit-content;
+}
+
+.imageBlock {
+  margin: 2px;
+  position: relative;
+  transition: 1s;
+}
+
+.imageBlock:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.imageBlock:hover .imageDesc {
+  opacity: 0.8;
+}
+
+.imageDesc {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  opacity: 0;
+  transition: 1s;
+  background: wheat;
+}
+
+i {
+  display: block;
+}
