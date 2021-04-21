@@ -1,16 +1,14 @@
-import React, {Component} from "react";
+import React from "react";
 import './index.css'
 
 type ColumnProps = {
-  size: number
+	size: number
 }
 
-class Column extends Component<ColumnProps, {}> {
-  render() {
-    return (
-      <div className='column' style={{height: `${this.props.size * 2}px`}}></div>
-    );
-  }
+function Column(props: ColumnProps) {
+	return (
+		<div className='column' style={{height: `${props.size * 2}px`}}></div>
+	);
 }
 
 export default Column

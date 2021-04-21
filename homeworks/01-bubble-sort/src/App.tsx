@@ -21,26 +21,23 @@ enum StatusOfBtn {
   STOP = 'stop'
 }
 
+const makeArr = (): number[] => [...Array(Math.floor(Math.random() * 40))]
+  .map(el => el = Math.floor(Math.random() * 100))
+
 class App extends Component<{}, AppState> {
-  private timerID: any
+  private timerID: number | undefined;
   state = {
     statusOfGame: StatusOfGame.NOT_SOLVED,
     statusOfBtn: StatusOfBtn.START,
-    arrOfNumbers: [],
+    arrOfNumbers: makeArr(),
     arrOfTimerID: [],
     disabled: false,
-  }
-
-  componentDidMount() {
-    this.setState({arrOfNumbers: this.makeArr()})
   }
 
   componentWillUnmount() {
     const {arrOfTimerID} = this.state
     arrOfTimerID.forEach(el => clearTimeout(el))
   }
-
-  makeArr = (): number[] => [...Array(Math.floor(Math.random() * 40))].map(el => el = Math.floor(Math.random() * 100))
 
   start = (): void => {
     const {arrOfTimerID, statusOfBtn} = this.state
@@ -58,7 +55,7 @@ class App extends Component<{}, AppState> {
     const {arrOfTimerID} = this.state
     arrOfTimerID.forEach(el => clearTimeout(el))
     this.setState({
-      arrOfNumbers: this.makeArr(),
+      arrOfNumbers: makeArr(),
       statusOfGame: StatusOfGame.NOT_SOLVED,
       statusOfBtn: StatusOfBtn.START,
       disabled: false
@@ -67,9 +64,9 @@ class App extends Component<{}, AppState> {
 
   bubbleSort = (): void => {
     const arrOfNum: number[] = [...this.state.arrOfNumbers]
-    let arrOfTimerID: number[] = [];
-    let resArr: number[] = [];
-    let flagChange: boolean = false;
+    let arrOfTimerID: number[] = []
+    let resArr: number[] = []
+    let flagChange: boolean = false
     let count: number = 0
     for (let i = 0; i < arrOfNum.length - 1; i++) {
       for (let j = 1; j < arrOfNum.length - i; j++) {
@@ -79,11 +76,11 @@ class App extends Component<{}, AppState> {
           arrOfNum[j] = arrOfNum[j - 1]
           arrOfNum[j - 1] = temp
           resArr = [...arrOfNum]
-          flagChange = true;
-          this.timerID = setTimeout(((result, curTimerID) => {
-            return () => {
+          flagChange = true
+          this.timerID = window.setTimeout(((result, curTimerID) => {
+            return (): void => {
               this.setState({arrOfNumbers: result})
-              if (this.timerID === curTimerID + 1 || result.length <= 2) {
+              if (this.timerID === Number(curTimerID) + 1 || result.length <= 2) {
                 this.setState({
                   statusOfGame: StatusOfGame.SOLVED,
                   disabled: true,
