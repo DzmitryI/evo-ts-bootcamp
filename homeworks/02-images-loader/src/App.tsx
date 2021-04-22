@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import api from "./utils/api"
+import ImageBlock from "./components/ImageBlock";
 import styles from './App.module.css'
 
 type AppState = {
@@ -61,25 +62,20 @@ export default class App extends Component<{}, AppState> {
 					/>
 					<button className={styles.btn} onClick={this.handleClick}>search</button>
 				</div>
-				<body className={styles.imagesContainer}>
-				{arrOfImg.length > 0 ? arrOfImg.map((curImg, idx) => {
-					return (
-						<div
-							key={idx}
-							className={styles.imageBlock}
-							style={{
-								width: `${curImg['width']*168/curImg['height']}px`,
-							  flexGrow: +`${curImg['width']*168/curImg['height']}`
-							}}>
-							<i style={{paddingBottom: `${curImg['height']/curImg['width']*100}%`}}></i>
-							<img src={curImg['urls']['regular']} alt={curImg['alt_description']} />
-							<div className={styles.imageDesc}>{curImg['alt_description']}</div>
-						</div>
-					)})
-					:
-					null
-				}
-				</body>
+				<ul className={styles.imagesContainer}>
+					{ arrOfImg.length > 0 ? arrOfImg.map((curImg, idx) => {
+						return (
+							<ImageBlock
+								alt_description={curImg['alt_description']}
+								height={curImg['height']}
+								urls={curImg['urls']}
+								width={curImg['width']}
+							/>
+						)})
+						:
+						null
+					}
+				</ul>
 			</div>
 		);
 	}

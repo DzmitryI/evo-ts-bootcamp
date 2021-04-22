@@ -53,6 +53,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin: 0 20px;
+  padding: 0;
   height: fit-content;
 }
 
@@ -60,6 +61,7 @@ img {
   margin: 2px;
   position: relative;
   transition: 1s;
+  list-style-type: none;
 }
 
 .imageBlock:hover {
