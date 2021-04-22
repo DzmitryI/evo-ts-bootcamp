@@ -65,12 +65,7 @@ export default class App extends Component<{}, AppState> {
 				<ul className={styles.imagesContainer}>
 					{ arrOfImg.length > 0 ? arrOfImg.map((curImg, idx) => {
 						return (
-							<ImageBlock
-								alt_description={curImg['alt_description']}
-								height={curImg['height']}
-								urls={curImg['urls']}
-								width={curImg['width']}
-							/>
+							<ImageBlock curImg={curImg} idx={idx} />
 						)})
 						:
 						null
