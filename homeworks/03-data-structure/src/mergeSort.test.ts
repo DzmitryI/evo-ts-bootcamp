@@ -1,4 +1,4 @@
-import  {compareFunction, mergeSort, merge} from "./mergeSort";
+import  {compareFunction, mergeSort} from "./mergeSort";
 
 describe('mergeSort', () => {
 	describe("main function", () => {
