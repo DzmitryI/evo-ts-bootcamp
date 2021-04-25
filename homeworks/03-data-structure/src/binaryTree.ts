@@ -41,6 +41,18 @@ export class BinarySearchTree<T> {
 			this.insertNode(this.root, newNode);
 		}
 	}
+	inOrder(): T[] {
+		const res: T[] = [];
+		const inOrderTraverse = (node: TreeNode<T> | null) => {
+			if (node != null) {
+				inOrderTraverse(node.left);
+				res.push(node.data);
+				inOrderTraverse(node.right);
+			}
+		};
+		inOrderTraverse(this.root);
+		return res;
+	}
 	preOrder(): T[] {
 		const root: TreeNode<T> = this.root as TreeNode<T>
 		const res: T[] = []
@@ -89,17 +101,6 @@ export class BinarySearchTree<T> {
 		};
 		return maxNode(root);
 	};
-	search(node: TreeNode<number> | null, data: number): boolean {
-		if (node === null) {
-			return false;
-		} else if (data < node.data) {
-			return this.search(node.left, data);
-		} else if (data > node.data) {
-			return this.search(node.right, data);
-		} else {
-			return true;
-		}
-	}
 	searchElement = (data: T): boolean => {
 		const root: TreeNode<T> = this.root as TreeNode<T>
 		const search = (node: TreeNode<T> | null, data: T): boolean => {
