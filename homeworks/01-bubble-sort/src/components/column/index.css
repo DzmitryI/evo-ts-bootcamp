@@ -1,0 +1,7 @@
+.column {
+  width: 10px;
+  background: antiquewhite;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 0 1px;
+}
