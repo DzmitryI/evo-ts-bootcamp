@@ -19,7 +19,7 @@ export const pizzaBasketReducer = (state = initialState, action: ActionBasket): 
 			const [curPizzaAdd] = payload.pizzas.filter(pizza => pizza._id === payload._id)
 			const resAdd = [...state.arrBasket]
 			if (indexAdd !== -1) {
-				resAdd[indexAdd].count += 1;
+				resAdd[indexAdd].count += 1
 			} else {
 				resAdd.push({_id: payload._id, count: 1, name: curPizzaAdd.name, price: curPizzaAdd.price})
 			}
@@ -33,7 +33,7 @@ export const pizzaBasketReducer = (state = initialState, action: ActionBasket): 
 			let index = state.arrBasket.findIndex((good) => good._id === payload._id);
 			const res = [...state.arrBasket]
 			if (index !== -1 && res[index].count > 1) {
-				res[index].count -= 1;
+				res[index].count -= 1
 			} else if (index !== -1 && res[index].count === 1) {
 				res.splice(index, 1)
 			}

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {types} from "../store/actions/actionsTypes";
 import {RootState} from "../store/reducers/rootReducer";
 import {PizzaBasketItem} from "./PizzaBasketItem";
+import {logger} from "../index";
 
 export function PizzaBasket(): JSX.Element {
 	const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export function PizzaBasket(): JSX.Element {
 
 	const handleMinusPizza =
 		useCallback((_id: string) => {
-			dispatch({type: types.PIZZA_REMOVED_FROM_BASKET, payload: {_id, pizzas: pizzaList.arrPizzas}})
+			dispatch(logger({type: types.PIZZA_REMOVED_FROM_BASKET, payload: {_id, pizzas: pizzaList.arrPizzas}}))
 		}, [dispatch, pizzaList.arrPizzas]);
 
 	return (
