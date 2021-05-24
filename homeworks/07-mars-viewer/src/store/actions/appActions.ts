@@ -29,12 +29,12 @@ interface FetchSolsError {
 
 interface AddFavouriteSols {
 	readonly type: types.AddFavourite
-	readonly payload: {favourites: Sols}
+	readonly payload: {favourite: string}
 }
 
 interface DeleteFavouriteSols {
 	readonly type: types.DeleteFavourite
-	readonly payload: {favourites: Sols}
+	readonly payload: {favourite: string}
 }
 
 export type FetchSols = FetchSolsStart | FetchSolsSuccess | FetchSolsError;

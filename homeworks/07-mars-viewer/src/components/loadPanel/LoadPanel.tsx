@@ -45,7 +45,6 @@ export function LoadPanel() {
           type="button"
           className={style.btn}
           onClick={onClickHandle}
-
         >
           load
         </button>
