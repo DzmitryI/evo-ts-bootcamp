@@ -1,0 +1,27 @@
+ul {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #00f;
+  cursor: pointer;
+}
+.item:not(.item:last-child)::after {
+  content: "|";
+  margin: 0 5px;
+  font-size: 24px;
+  color: black;
+}
+
+.active {
+  color: black;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+

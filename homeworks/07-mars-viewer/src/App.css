@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  font-size: 22px;
+  width: 100vw;
+}
+
+ul, li {
+  padding: 0;
+}
+
+p, div {
+  margin: 0;
+}
+
