@@ -1,0 +1,41 @@
+img {
+  width: 100%;
+  height: auto;
+}
+
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(400px,auto));
+  grid-gap: 10px;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+
+.imageBlock {
+  margin: 2px;
+  max-width: 400px;
+  position: relative;
+  transition: 1s;
+  list-style-type: none;
+}
+
+svg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  opacity: 0.4;
+}
+
+svg:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+}
+
+
