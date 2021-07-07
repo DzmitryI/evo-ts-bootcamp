@@ -1,0 +1,23 @@
+.buttonsWrapper {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+
+}
+.btn {
+  width: 160px;
+  height: 44px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 20px;
+  line-height: 140%;
+  cursor: pointer;
+}
+
+.btn:first-child {
+  margin-right: 15px;
+}
+
